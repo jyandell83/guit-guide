@@ -25,6 +25,9 @@ const App = () =>  {
         for(let i = 0; i < strings; i++) {
             let openNote = openNotes[i];
             let guitarString = notes.slice(notes.indexOf(openNote)).concat(notes, notes);
+            while (guitarString.length > frets) {
+                guitarString.pop();
+            }
             fretArray.push(guitarString);
         }
         setFretboard(fretArray);
