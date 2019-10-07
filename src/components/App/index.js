@@ -5,13 +5,14 @@ import React, { useState, useEffect } from 'react';
 import WelcomeModal from '../WelcomeModal'
 
 const notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
-const openNotes = ['E', 'A', 'D', 'G', 'B', 'E'];
+// const openNotes = ['E', 'A', 'D', 'G', 'B', 'E'];
 
 const App = () =>  {
     const [showModal, setShowModal] = useState(true);
     const [numberOfStrings, setNumberOfStrings] = useState(6);
     const [numberOfFrets, setNumberOfFrets] = useState(24);
     const [fretboard, setFretboard] = useState([]);
+    const [openNotes, setOpenNotes] = useState(['E', 'A', 'D', 'G', 'B', 'E']);
     //using this to close welcome model when people submit the form
     const closeModal = () =>  {
         setShowModal(false);
@@ -30,7 +31,7 @@ const App = () =>  {
     }
     useEffect(() =>  {
         buildFretboard(numberOfStrings, numberOfFrets);
-    }, [numberOfFrets, numberOfStrings]);
+    }, [numberOfFrets, numberOfStrings, openNotes]);
     console.log(fretboard)
     return(
         <div>
@@ -40,7 +41,14 @@ const App = () =>  {
                 //these are the tuners for lack of a better word
                  fretboard.map((elem,i) => 
                     <div key={i}>
-                        <select onChange={(e => console.log(e.target.value))}>
+                        <select onChange={
+                            e => 
+                            {
+                                let newArr = openNotes.slice();
+                                newArr[i] = e.target.value;
+                                setOpenNotes(newArr);
+                            }
+                            }>
                             {
                                 notes.map((note, index) =>  
                                     <option key={index}>{note}</option>
