@@ -13,6 +13,7 @@ const App = () =>  {
     const [numberOfFrets, setNumberOfFrets] = useState(24);
     const [fretboard, setFretboard] = useState([]);
     const [openNotes, setOpenNotes] = useState(['E', 'A', 'D', 'G', 'B', 'E']);
+    const [root, setRoot] = useState('E');
     //using this to close welcome model when people submit the form
     const closeModal = () =>  {
         setShowModal(false);
@@ -34,11 +35,24 @@ const App = () =>  {
     }
     useEffect(() =>  {
         buildFretboard(numberOfStrings, numberOfFrets);
-    }, [numberOfFrets, numberOfStrings, openNotes]);
+    }, [numberOfFrets, numberOfStrings, openNotes, root]);
     console.log(fretboard)
     return(
         <div>
             Hello, let guitar guide show you the way
+            ROOT:
+            <select onChange={
+                            e => 
+                            {
+                                setRoot(e.target.value);
+                            }
+                            }>
+                            {
+                                notes.map((note, index) =>  
+                                    <option key={index}>{note}</option>
+                                )
+                            }
+            </select>
             {numberOfStrings},{numberOfFrets}<br />
             {
                 //these are the tuners for lack of a better word
@@ -58,7 +72,7 @@ const App = () =>  {
                                 )
                             }
                         </select>
-                        <div>{elem}</div>
+                        {elem.map((n, ind) => <div key={ind} className={(n === root) ? 'root' : n}>{n}</div>)}
                     </div>)
             }
             {
