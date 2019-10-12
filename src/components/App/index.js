@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import WelcomeModal from '../WelcomeModal';
 
-import { FretNote, GuitarString } from './style';
+import { FretNote, GuitarString, FretContainer } from './style';
 
 const notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
 // const openNotes = ['E', 'A', 'D', 'G', 'B', 'E'];
@@ -16,19 +16,22 @@ const App = () =>  {
     const [fretboard, setFretboard] = useState([]);
     const [openNotes, setOpenNotes] = useState(['E', 'A', 'D', 'G', 'B', 'E']);
     const [root, setRoot] = useState('E');
-    const [scale, setScale] = useState([])
+    const [scale, setScale] = useState('');
+    const [scaleNotes, setScaleNotes] = useState([]);
     //using this to close welcome model when people submit the form
     const closeModal = () =>  {
         setShowModal(false);
     }
     const makeMajor = (arr) =>  {
-        return arr.filter((elem, index) => {return index === 0 || index === 2 || index === 4 || index === 5 || index === 7 || index === 9 || index ===11});
+        let newArr = arr.slice(arr.indexOf(root)).concat(arr);
+        while (newArr.length > arr.length) {
+        newArr.pop();
+        }
+        setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 4 || index === 5 || index === 7 || index === 9 || index ===11}));
     }
     //using this to build arrays or strings and frets to contain names of notes
     const buildFretboard = (strings, frets) =>  {
         let fretArray = [];
-        
-        
         for(let i = 0; i < strings; i++) {
             let openNote = openNotes[i];
             let guitarString = notes.slice(notes.indexOf(openNote)).concat(notes, notes);
@@ -40,9 +43,12 @@ const App = () =>  {
         setFretboard(fretArray);
     }
     useEffect(() =>  {
+        if (scale === 'Major') {
+            makeMajor(notes);
+        }
         buildFretboard(numberOfStrings, numberOfFrets);
-    }, [numberOfFrets, numberOfStrings, openNotes, root]);
-    console.log(fretboard)
+    }, [numberOfFrets, numberOfStrings, openNotes, root, scale]);
+    console.log(scaleNotes)
     return(
         <div>
             Hello, let guitar guide show you the way
@@ -60,7 +66,7 @@ const App = () =>  {
                             }
             </select>
             SCALE:
-            <select>
+            <select onChange={e => {setScale(e.target.value)}}>
                 <option>Major</option>
                 <option>Minor</option>
             </select>
@@ -83,7 +89,7 @@ const App = () =>  {
                                 )
                             }
                         </select>
-                        {elem.map((n, ind) => <FretNote key={ind} className={(n === root) ? 'root' : n}>{n}</FretNote>)}
+                        {elem.map((n, ind) => <FretContainer key={ind}><FretNote key={ind} className={(scaleNotes.includes(n)) ? 'root' : n}>{n}</FretNote></FretContainer>)}
                     </GuitarString>)
             }
             {
