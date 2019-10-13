@@ -15,8 +15,8 @@ const App = () =>  {
     const [numberOfFrets, setNumberOfFrets] = useState(24);
     const [fretboard, setFretboard] = useState([]);
     const [openNotes, setOpenNotes] = useState(['E', 'A', 'D', 'G', 'B', 'E']);
-    const [root, setRoot] = useState('E');
-    const [scale, setScale] = useState('');
+    const [root, setRoot] = useState('C');
+    const [scale, setScale] = useState('Major');
     const [scaleNotes, setScaleNotes] = useState([]);
     //using this to close welcome model when people submit the form
     const closeModal = () =>  {
@@ -28,6 +28,13 @@ const App = () =>  {
         newArr.pop();
         }
         setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 4 || index === 5 || index === 7 || index === 9 || index ===11}));
+    }
+    const makeMinor = (arr) =>  {
+        let newArr = arr.slice(arr.indexOf(root)).concat(arr);
+        while (newArr.length > arr.length) {
+        newArr.pop();
+        }
+        setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 3 || index === 5 || index === 7 || index === 8 || index ===10}));
     }
     //using this to build arrays or strings and frets to contain names of notes
     const buildFretboard = (strings, frets) =>  {
@@ -45,6 +52,9 @@ const App = () =>  {
     useEffect(() =>  {
         if (scale === 'Major') {
             makeMajor(notes);
+        }
+        if (scale === 'Minor') {
+            makeMinor(notes);
         }
         buildFretboard(numberOfStrings, numberOfFrets);
     }, [numberOfFrets, numberOfStrings, openNotes, root, scale]);
