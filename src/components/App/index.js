@@ -27,14 +27,23 @@ const App = () =>  {
         while (newArr.length > arr.length) {
         newArr.pop();
         }
-        setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 4 || index === 5 || index === 7 || index === 9 || index ===11}));
+        if (scale === 'Major Pentatonic'){
+            setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 4 || index === 7 || index === 9}))  
+        }
+        else {
+            setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 4 || index === 5 || index === 7 || index === 9 || index ===11}))  
+        };
     }
     const makeMinor = (arr) =>  {
         let newArr = arr.slice(arr.indexOf(root)).concat(arr);
         while (newArr.length > arr.length) {
         newArr.pop();
         }
-        setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 3 || index === 5 || index === 7 || index === 8 || index ===10}));
+        if (scale === 'Minor Pentatonic'){
+            setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 3 || index === 5 || index === 7 || index ===10}))  
+        }
+        else {
+        setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 3 || index === 5 || index === 7 || index === 8 || index ===10}))};
     }
     //using this to build arrays or strings and frets to contain names of notes
     const buildFretboard = (strings, frets) =>  {
@@ -54,6 +63,12 @@ const App = () =>  {
             makeMajor(notes);
         }
         if (scale === 'Minor') {
+            makeMinor(notes);
+        }
+        if (scale === 'Major Pentatonic') {
+            makeMajor(notes);
+        }
+        if (scale === 'Minor Pentatonic') {
             makeMinor(notes);
         }
         buildFretboard(numberOfStrings, numberOfFrets);
@@ -79,6 +94,8 @@ const App = () =>  {
             <select onChange={e => {setScale(e.target.value)}}>
                 <option>Major</option>
                 <option>Minor</option>
+                <option>Major Pentatonic</option>
+                <option>Minor Pentatonic</option>
             </select>
             {numberOfStrings},{numberOfFrets}<br />
             {
