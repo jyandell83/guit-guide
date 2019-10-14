@@ -76,7 +76,10 @@ const App = () =>  {
     console.log(scaleNotes)
     return(
         <div>
-            Hello, let guitar guide show you the way
+            <h1>
+                Hello, let guitar guide show you the way<br />
+            {root} - {scale}
+            </h1>
             ROOT:
             <select onChange={
                             e => 
@@ -84,6 +87,7 @@ const App = () =>  {
                                 setRoot(e.target.value);
                             }
                             }>
+                            <option disabled selected>- Change Root -</option>
                             {
                                 notes.map((note, index) =>  
                                     <option key={index}>{note}</option>
@@ -92,12 +96,13 @@ const App = () =>  {
             </select>
             SCALE:
             <select onChange={e => {setScale(e.target.value)}}>
+                <option disabled selected>- Change Scale -</option>
                 <option>Major</option>
                 <option>Minor</option>
                 <option>Major Pentatonic</option>
                 <option>Minor Pentatonic</option>
-            </select>
-            {numberOfStrings},{numberOfFrets}<br />
+            </select><br />
+            
             {
                 //these are the tuners for lack of a better word
                  fretboard.map((elem,i) => 
@@ -110,6 +115,7 @@ const App = () =>  {
                                 setOpenNotes(newArr);
                             }
                             }>
+                            <option disabled selected>- Change Tuning -</option>
                             {
                                 notes.map((note, index) =>  
                                     <option key={index}>{note}</option>
