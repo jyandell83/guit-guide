@@ -99,7 +99,13 @@ const App = () =>  {
                                 )
                             }
                         </select>
-                        {elem.map((n, ind) => <FretContainer key={ind}><FretNote key={ind} className={(scaleNotes.includes(n)) ? 'root' : n}>{n}</FretNote></FretContainer>)}
+                        {elem.map((n, ind) => 
+                            <FretContainer key={ind}>
+                                <FretNote key={ind} className={(scaleNotes.includes(n)) ? `scale ${n === root ? 'root' : null}` : n}>
+                                    {n}
+                                </FretNote>
+                                </FretContainer>
+                        )}
                     </GuitarString>)
             }
             {

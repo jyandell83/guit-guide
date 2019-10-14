@@ -1,6 +1,15 @@
+
+
+.scale {
+    color: steelblue;
+    background-color: pink;
+    border: 1px solid pink;
+    border-radius: 50%;
+}
+
 .root {
-    color: white;
-    background-color: black;
-    border: 1px solid black;
+    color: steelblue;
+    background-color: lightgoldenrodyellow;
+    border: 1px solid lightgoldenrodyellow;
     border-radius: 50%;
 }

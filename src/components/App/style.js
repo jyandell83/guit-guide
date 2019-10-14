@@ -4,9 +4,12 @@ import styled from 'styled-components';
 export const FretNote = styled.div`
     display: inline;
     
+    padding: 7px;
 `
 export const FretContainer = styled.div`
-    width: 40px;
+    width: 5%;
+    height: 30px;
+    padding-top: 7px;
     border: 1px solid black;
     text-align: center;
 `
