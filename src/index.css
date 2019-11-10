@@ -1,5 +1,14 @@
+*,
+*::after,
+*::before {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: inherit;
+}
+
 body {
     text-align: center;
+    box-sizing: border-box;
 }
 
 .scale {
