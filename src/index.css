@@ -9,18 +9,20 @@
 body {
     text-align: center;
     box-sizing: border-box;
+    color: #2d3436;
+    background-color: #ecf0f1;
 }
 
 .scale {
-    color: steelblue;
-    background-color: pink;
-    border: 1px solid pink;
+    color: #ecf0f1;
+    background-color: #d35400;
+    border: 1px solid #d35400;
     border-radius: 50%;
 }
 
 .root {
-    color: steelblue;
-    background-color: lightgoldenrodyellow;
-    border: 1px solid lightgoldenrodyellow;
+    color: #ecf0f1;
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
     border-radius: 50%;
 }
