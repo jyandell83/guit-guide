@@ -14,7 +14,7 @@ const App = () =>  {
     const [numberOfStrings, setNumberOfStrings] = useState(6);
     const [numberOfFrets, setNumberOfFrets] = useState(24);
     const [fretboard, setFretboard] = useState([]);
-    const [openNotes, setOpenNotes] = useState(['E', 'A', 'D', 'G', 'B', 'E']);
+    const [openNotes, setOpenNotes] = useState(['E', 'B', 'G', 'D', 'A', 'E']);
     const [root, setRoot] = useState('C');
     const [scale, setScale] = useState('Major');
     const [scaleNotes, setScaleNotes] = useState([]);
