@@ -22,43 +22,43 @@ const App = () =>  {
     const closeModal = () =>  {
         setShowModal(false);
     }
-    const makeMajor = (arr) =>  {
-        let newArr = arr.slice(arr.indexOf(root)).concat(arr);
-        while (newArr.length > arr.length) {
-        newArr.pop();
-        }
-        if (scale === 'Major Pentatonic'){
-            setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 4 || index === 7 || index === 9}))  
-        }
-        else {
-            setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 4 || index === 5 || index === 7 || index === 9 || index ===11}))  
-        };
-    }
-    const makeMinor = (arr) =>  {
-        let newArr = arr.slice(arr.indexOf(root)).concat(arr);
-        while (newArr.length > arr.length) {
-        newArr.pop();
-        }
-        if (scale === 'Minor Pentatonic'){
-            setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 3 || index === 5 || index === 7 || index ===10}))  
-        }
-        else {
-        setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 3 || index === 5 || index === 7 || index === 8 || index ===10}))};
-    }
-    //using this to build arrays or strings and frets to contain names of notes
-    const buildFretboard = (strings, frets) =>  {
-        let fretArray = [];
-        for(let i = 0; i < strings; i++) {
-            let openNote = openNotes[i];
-            let guitarString = notes.slice(notes.indexOf(openNote)).concat(notes, notes);
-            while (guitarString.length > frets) {
-                guitarString.pop();
-            }
-            fretArray.push(guitarString);
-        }
-        setFretboard(fretArray);
-    }
     useEffect(() =>  {
+        const makeMajor = (arr) =>  {
+            let newArr = arr.slice(arr.indexOf(root)).concat(arr);
+            while (newArr.length > arr.length) {
+            newArr.pop();
+            }
+            if (scale === 'Major Pentatonic'){
+                setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 4 || index === 7 || index === 9}))  
+            }
+            else {
+                setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 4 || index === 5 || index === 7 || index === 9 || index ===11}))  
+            };
+        }
+        const makeMinor = (arr) =>  {
+            let newArr = arr.slice(arr.indexOf(root)).concat(arr);
+            while (newArr.length > arr.length) {
+            newArr.pop();
+            }
+            if (scale === 'Minor Pentatonic'){
+                setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 3 || index === 5 || index === 7 || index ===10}))  
+            }
+            else {
+            setScaleNotes(newArr.filter((elem, index) => {return index === 0 || index === 2 || index === 3 || index === 5 || index === 7 || index === 8 || index ===10}))};
+        }
+        //using this to build arrays or strings and frets to contain names of notes
+        const buildFretboard = (strings, frets) =>  {
+            let fretArray = [];
+            for(let i = 0; i < strings; i++) {
+                let openNote = openNotes[i];
+                let guitarString = notes.slice(notes.indexOf(openNote)).concat(notes, notes);
+                while (guitarString.length > frets) {
+                    guitarString.pop();
+                }
+                fretArray.push(guitarString);
+            }
+            setFretboard(fretArray);
+        }
         if (scale === 'Major') {
             makeMajor(notes);
         }
