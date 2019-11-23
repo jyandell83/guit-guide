@@ -10,7 +10,7 @@ const notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
 // const openNotes = ['E', 'A', 'D', 'G', 'B', 'E'];
 
 const App = () =>  {
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
     const [numberOfStrings, setNumberOfStrings] = useState(6);
     const [numberOfFrets, setNumberOfFrets] = useState(24);
     const [fretboard, setFretboard] = useState([]);
@@ -73,35 +73,39 @@ const App = () =>  {
         }
         buildFretboard(numberOfStrings, numberOfFrets);
     }, [numberOfFrets, numberOfStrings, openNotes, root, scale]);
-    console.log(scaleNotes)
     return(
         <div>
-            <h1>
+            <h1 className="margin-top-small">
                 Hello, let guitar guide show you the way<br />
-            {root} - {scale}
+            
             </h1>
-            ROOT:
-            <select onChange={
-                            e => 
-                            {
-                                setRoot(e.target.value);
-                            }
-                            }>
-                            <option disabled selected>- Change Root -</option>
-                            {
-                                notes.map((note, index) =>  
-                                    <option key={index}>{note}</option>
-                                )
-                            }
-            </select>
-            SCALE:
-            <select onChange={e => {setScale(e.target.value)}}>
-                <option disabled selected>- Change Scale -</option>
-                <option>Major</option>
-                <option>Minor</option>
-                <option>Major Pentatonic</option>
-                <option>Minor Pentatonic</option>
-            </select><br />
+            <h2 className="margin-top-small">
+                {root} - {scale}
+            </h2>
+            <div className="margin-top-small">
+                ROOT:
+                <select onChange={
+                                e => 
+                                {
+                                    setRoot(e.target.value);
+                                }
+                                }>
+                                <option disabled selected>- Change Root -</option>
+                                {
+                                    notes.map((note, index) =>  
+                                        <option key={index}>{note}</option>
+                                    )
+                                }
+                </select>
+                SCALE:
+                <select onChange={e => {setScale(e.target.value)}}>
+                    <option disabled selected>- Change Scale -</option>
+                    <option>Major</option>
+                    <option>Minor</option>
+                    <option>Major Pentatonic</option>
+                    <option>Minor Pentatonic</option>
+                </select><br />
+            </div>
             
             {
                 //these are the tuners for lack of a better word

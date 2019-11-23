@@ -6,6 +6,10 @@
     box-sizing: inherit;
 }
 
+.margin-top-small {
+    margin-top: 20px;
+}
+
 body {
     text-align: center;
     box-sizing: border-box;
@@ -15,14 +19,14 @@ body {
 
 .scale {
     color: #ecf0f1;
-    background-color: #d35400;
-    border: 1px solid #d35400;
+    background-color: #1289A7;
+    border: 1px solid #1289A7;
     border-radius: 50%;
 }
 
 .root {
     color: #ecf0f1;
-    background-color: #e67e22;
-    border: 1px solid #e67e22;
+    background-color: #12CBC4;
+    border: 1px solid #ED4C67;
     border-radius: 50%;
 }
