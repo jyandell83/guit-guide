@@ -135,6 +135,8 @@ const App = () =>  {
                         )}
                     </GuitarString>)
             }
+            <button onClick={() => setNumberOfStrings(numberOfStrings + 1)}>Add String</button>
+            <button onClick={() => setNumberOfStrings(numberOfStrings - 1)}>Delete String</button>
             {
                 showModal ? <WelcomeModal 
                                 closeModal ={closeModal} 
