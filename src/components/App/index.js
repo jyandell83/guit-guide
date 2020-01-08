@@ -3,9 +3,11 @@ import React, { useState, useEffect } from 'react';
 
 import Header from '../Header';
 import WelcomeModal from '../WelcomeModal';
+import Dashboard from '../Dashboard';
 
 
 import { FretNote, GuitarString, FretContainer } from './style';
+
 
 const notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
 // const openNotes = ['E', 'A', 'D', 'G', 'B', 'E'];
@@ -77,50 +79,11 @@ const App = () =>  {
     return(
         <div>
             <Header root={root} scale={scale} />
-            <div className="margin-top-small">
-                ROOT:
-                <select onChange={
-                                e => 
-                                {
-                                    setRoot(e.target.value);
-                                }
-                                }>
-                                <option disabled selected>- Change Root -</option>
-                                {
-                                    notes.map((note, index) =>  
-                                        <option key={index}>{note}</option>
-                                    )
-                                }
-                </select>
-                SCALE:
-                <select onChange={e => {setScale(e.target.value)}}>
-                    <option disabled selected>- Change Scale -</option>
-                    <option>Major</option>
-                    <option>Minor</option>
-                    <option>Major Pentatonic</option>
-                    <option>Minor Pentatonic</option>
-                </select><br />
-            </div>
             
             {
                 //these are the tuners for lack of a better word
                  fretboard.map((elem,i) => 
                     <GuitarString key={i}>
-                        <select onChange={
-                            e => 
-                            {
-                                let newArr = openNotes.slice();
-                                newArr[i] = e.target.value;
-                                setOpenNotes(newArr);
-                            }
-                            }>
-                            <option disabled selected>- Change Tuning -</option>
-                            {
-                                notes.map((note, index) =>  
-                                    <option key={index}>{note}</option>
-                                )
-                            }
-                        </select>
                         {elem.map((n, ind) => 
                             <FretContainer key={ind}>
                                 <FretNote key={ind} className={(scaleNotes.includes(n)) ? `scale ${n === root ? 'root' : null}` : n}>
@@ -132,6 +95,16 @@ const App = () =>  {
             }
             <button onClick={() => setNumberOfStrings(numberOfStrings + 1)}>Add String</button>
             <button onClick={() => setNumberOfStrings(numberOfStrings - 1)}>Delete String</button>
+            <Dashboard 
+                setScale={setScale} 
+                setRoot={setRoot} 
+                notes={notes} 
+                fretboard={fretboard}
+                openNotes={openNotes}
+                setOpenNotes={setOpenNotes}
+                scaleNotes={scaleNotes}
+                root={root}
+            />
             {
                 showModal ? <WelcomeModal 
                                 closeModal ={closeModal} 
