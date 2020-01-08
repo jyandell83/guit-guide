@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 
-
+import Header from '../Header';
 import WelcomeModal from '../WelcomeModal';
+
 
 import { FretNote, GuitarString, FretContainer } from './style';
 
@@ -75,13 +76,7 @@ const App = () =>  {
     }, [numberOfFrets, numberOfStrings, openNotes, root, scale]);
     return(
         <div>
-            <h1 className="margin-top-small">
-                Hello, let guitar guide show you the way<br />
-            
-            </h1>
-            <h2 className="margin-top-small">
-                {root} - {scale}
-            </h2>
+            <Header root={root} scale={scale} />
             <div className="margin-top-small">
                 ROOT:
                 <select onChange={
