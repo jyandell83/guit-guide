@@ -1,5 +1,5 @@
 import React from 'react';
-import { FretNote, GuitarString, FretContainer } from './style';
+import {GuitarString} from './style';
 
 
 
@@ -9,21 +9,16 @@ const Dashboard = ({setScale, setRoot, notes, fretboard, openNotes, setOpenNotes
             <h3>DASHBOARD</h3>
             <div className="margin-top-small">
                 ROOT:
-                <select onChange={
-                                e => 
-                                {
-                                    setRoot(e.target.value);
-                                }
-                                }>
-                                <option disabled selected>- Change Root -</option>
-                                {
-                                    notes.map((note, index) =>  
-                                        <option key={index}>{note}</option>
-                                    )
-                                }
+                <select onChange={(e) => setRoot(e.target.value)}>
+                    <option disabled selected>- Change Root -</option>
+                    {
+                        notes.map((note, index) =>  
+                            <option key={index}>{note}</option>
+                        )
+                    }
                 </select>
                 SCALE:
-                <select onChange={e => {setScale(e.target.value)}}>
+                <select onChange={(e) => setScale(e.target.value)}>
                     <option disabled selected>- Change Scale -</option>
                     <option>Major</option>
                     <option>Minor</option>
