@@ -35,4 +35,11 @@ body {
     border: 3px solid black;
     width: 40%;
     margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.dashboard__header {
+    grid-column: 1 / -1;
 }
