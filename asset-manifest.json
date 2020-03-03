@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/guit-guide/static/css/main.955973ae.chunk.css",
+    "main.css": "/guit-guide/static/css/main.bdbedf78.chunk.css",
     "main.js": "/guit-guide/static/js/main.2c4714bb.chunk.js",
     "main.js.map": "/guit-guide/static/js/main.2c4714bb.chunk.js.map",
     "runtime-main.js": "/guit-guide/static/js/runtime-main.de16dad2.js",
@@ -8,14 +8,14 @@
     "static/js/2.665aef6d.chunk.js": "/guit-guide/static/js/2.665aef6d.chunk.js",
     "static/js/2.665aef6d.chunk.js.map": "/guit-guide/static/js/2.665aef6d.chunk.js.map",
     "index.html": "/guit-guide/index.html",
-    "precache-manifest.25946ebb24f6ddc451a3413aa5a830a9.js": "/guit-guide/precache-manifest.25946ebb24f6ddc451a3413aa5a830a9.js",
+    "precache-manifest.8099ed44113a5a678db77b5bf1639bbe.js": "/guit-guide/precache-manifest.8099ed44113a5a678db77b5bf1639bbe.js",
     "service-worker.js": "/guit-guide/service-worker.js",
-    "static/css/main.955973ae.chunk.css.map": "/guit-guide/static/css/main.955973ae.chunk.css.map"
+    "static/css/main.bdbedf78.chunk.css.map": "/guit-guide/static/css/main.bdbedf78.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.de16dad2.js",
     "static/js/2.665aef6d.chunk.js",
-    "static/css/main.955973ae.chunk.css",
+    "static/css/main.bdbedf78.chunk.css",
     "static/js/main.2c4714bb.chunk.js"
   ]
 }
