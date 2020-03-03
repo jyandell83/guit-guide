@@ -1,3 +1,4 @@
+[THE SITE IS HERE](https://jyandell83.github.io/guit-guide/)
 # Guit Guide
 
 A representation of a guitar fretboard that musicians can use to navigate the fretboard while practicing.
