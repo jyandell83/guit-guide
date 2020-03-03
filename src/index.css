@@ -18,6 +18,20 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+button {
+  background-color: #ED4C67;
+  padding: 10px;
+  border-radius: 100px;
+  border: none;
+  color: #eee;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:focus {
+    outline: none;
+}
+
 .primary-header {
     font-family: 'Aclonica', sans-serif;
 }
