@@ -1,5 +1,5 @@
 import React from 'react';
-import {GuitarString} from './style';
+import {GuitarString, DashSetting} from './style';
 
 
 
@@ -7,7 +7,7 @@ const Dashboard = ({setScale, setRoot, notes, fretboard, openNotes, setOpenNotes
     return(
         <div className="dashboard">
             <h3 className="dashboard__header">DASHBOARD</h3>
-                <div>
+                <DashSetting>
                     ROOT:
                     <select onChange={(e) => setRoot(e.target.value)}>
                         <option disabled selected>- Change Root -</option>
@@ -17,8 +17,8 @@ const Dashboard = ({setScale, setRoot, notes, fretboard, openNotes, setOpenNotes
                             )
                         }
                     </select>
-                </div>
-                <div>
+                </DashSetting>
+                <DashSetting>
                     SCALE:
                     <select onChange={(e) => setScale(e.target.value)}>
                         <option disabled selected>- Change Scale -</option>
@@ -28,7 +28,7 @@ const Dashboard = ({setScale, setRoot, notes, fretboard, openNotes, setOpenNotes
                         <option>Minor Pentatonic</option>
                     </select>
 
-                </div>
+                </DashSetting>
            
             {
                 //these are the tuners for lack of a better word

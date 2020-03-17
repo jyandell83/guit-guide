@@ -21,7 +21,12 @@ export const FretContainer = styled.div`
     position: relative;
 `
 
+export const DashSetting = styled.div`
+    display: flex;
+    justify-content: space-around;
+`
+
 export const GuitarString = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 `
