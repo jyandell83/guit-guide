@@ -65,6 +65,11 @@ button:focus {
     color: transparent;
 }
 
+h2 {
+    margin-bottom: 2rem;
+    color: var(--color-fifth);
+}
+
 .scale {
     color: #ecf0f1;
     background-color: var(--color-primary);
