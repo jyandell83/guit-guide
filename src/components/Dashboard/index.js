@@ -6,7 +6,7 @@ import {GuitarString, DashSetting} from './style';
 const Dashboard = ({setScale, setRoot, notes, fretboard, openNotes, setOpenNotes, scaleNotes, root}) =>  {
     return(
         <div className="dashboard">
-            <h3 className="dashboard__header">DASHBOARD</h3>
+            <h3 className="dashboard__header">Dashboard</h3>
                 <DashSetting>
                     ROOT:
                     <select onChange={(e) => setRoot(e.target.value)}>
