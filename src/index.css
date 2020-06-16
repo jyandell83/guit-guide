@@ -7,9 +7,11 @@
 }
 
 :root {
-    --color-primary: #833471;
-    --color-secondary: #B53471;
-    --color-tertiary: #EE5A24;
+    --color-primary: #67BE55;
+    --color-secondary: #FFF00C;
+    --color-tertiary: #7A32A9;
+    --color-fourth: #0094CC;
+    --color-fifth: #E700AE;
 
     --color-light: #f1f2f6;
 
@@ -34,8 +36,8 @@ html {
 body {
     text-align: center;
     box-sizing: border-box;
-    color: var(--color-black);
-    background-color: var(--color-light);
+    color: var(--color-white);
+    background-color: var(--color-black);
     font-family: 'Raleway', sans-serif;
     font-size: 1.6rem;
     margin: 0 1rem;
@@ -48,7 +50,7 @@ button {
   border: none;
   color: #eee;
   cursor: pointer;
-  margin: .5rem;
+  margin: 2rem .5rem;
 }
 
 button:focus {
@@ -56,8 +58,11 @@ button:focus {
 }
 
 .primary-header {
-    font-family: 'Aclonica', sans-serif;
-    font-size: 5rem;
+    font-family: 'Creepster', cursive;
+    font-size: 7rem;
+    background-image: linear-gradient(var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .scale {
@@ -69,14 +74,15 @@ button:focus {
 
 .root {
     color: #ecf0f1;
-    background-color: var(--color-secondary);
-    border: 1px solid var(--color-tertiary);
+    background-color: var(--color-fourth);
+    border: 1px solid var(--color-fifth);
     border-radius: 50%;
 }
 
 .dashboard {
     border: 1px solid var(--color-black);
-    background-color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-black);
     border-radius: .4rem;
     width: 40%;
     margin: 2rem auto;
@@ -84,11 +90,12 @@ button:focus {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: .5rem;
-    box-shadow: 0 3px 1rem rgba(0,0,0,0.2);
+    box-shadow: 0 3px 1rem var(--color-primary);
 }
 
 .dashboard__header {
     grid-column: 1 / -1;
     margin-bottom: 1rem;
     font-family: 'Aclonica', sans-serif;
+    color: var(--color-tertiary);
 }

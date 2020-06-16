@@ -16,7 +16,7 @@ export const FretContainer = styled.div`
     width: 5%;
     height: 35px;
     padding: 7px;
-    border: 1px solid black;
+    border: 1px solid var(--color-white);
     text-align: center;
     position: relative;
 `

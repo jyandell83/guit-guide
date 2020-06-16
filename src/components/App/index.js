@@ -89,7 +89,7 @@ const App = () =>  {
                                 <FretNote key={ind} className={(scaleNotes.includes(n)) ? `scale ${n === root ? 'root' : null}` : n}>
                                     {n}
                                 </FretNote>
-                                </FretContainer>
+                            </FretContainer>
                         )}
                     </GuitarString>)
             }
