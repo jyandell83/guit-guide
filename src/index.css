@@ -104,3 +104,14 @@ h2 {
     font-family: 'Aclonica', sans-serif;
     color: var(--color-tertiary);
 }
+
+.fret-inlays-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.fret-inlays {
+    margin-top: .5rem;
+    color: var(--color-fifth);
+    width: 5%;
+}

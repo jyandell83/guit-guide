@@ -25,6 +25,7 @@ const App = () =>  {
     const closeModal = () =>  {
         setShowModal(false);
     }
+    const fretNumbers = new Array(numberOfFrets).fill('x');
     useEffect(() =>  {
         const makeMajor = (arr) =>  {
             let newArr = arr.slice(arr.indexOf(root)).concat(arr);
@@ -93,6 +94,11 @@ const App = () =>  {
                         )}
                     </GuitarString>)
             }
+            <div className="fret-inlays-container">
+                {
+                    fretNumbers.map((element, num) => <div className="fret-inlays" key={num}>{num}</div>)
+                }
+            </div>
             <button onClick={() => setNumberOfStrings(numberOfStrings + 1)}>Add String</button>
             <button onClick={() => setNumberOfStrings(numberOfStrings - 1)}>Delete String</button>
             <Dashboard 
