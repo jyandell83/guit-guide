@@ -16,6 +16,8 @@ const App = () =>  {
     const [showModal, setShowModal] = useState(false);
     const [numberOfStrings, setNumberOfStrings] = useState(6);
     const [numberOfFrets, setNumberOfFrets] = useState(24);
+    const [startingFret, setStartingFret] = useState(5);
+    const [endingFret, setEndingFret] = useState(9);
     const [fretboard, setFretboard] = useState([]);
     const [openNotes, setOpenNotes] = useState(['E', 'B', 'G', 'D', 'A', 'E']);
     const [root, setRoot] = useState('C');
@@ -56,10 +58,11 @@ const App = () =>  {
             for(let i = 0; i < strings; i++) {
                 let openNote = openNotes[i];
                 let guitarString = notes.slice(notes.indexOf(openNote)).concat(notes, notes);
-                while (guitarString.length > frets) {
-                    guitarString.pop();
-                }
-                fretArray.push(guitarString);
+                // while (guitarString.length > frets) {
+                //     guitarString.pop();
+                // }
+                // guitarString.splice(startingFret, endingFret);
+                fretArray.push(guitarString.slice(startingFret, endingFret));
             }
             setFretboard(fretArray);
         }
@@ -76,7 +79,7 @@ const App = () =>  {
             makeMinor(notes);
         }
         buildFretboard(numberOfStrings, numberOfFrets);
-    }, [numberOfFrets, numberOfStrings, openNotes, root, scale]);
+    }, [numberOfFrets, numberOfStrings, openNotes, root, scale, startingFret, endingFret]);
     return(
         <div>
             <Header root={root} scale={scale} />
@@ -96,7 +99,7 @@ const App = () =>  {
             }
             <div className="fret-inlays-container">
                 {
-                    fretNumbers.map((element, num) => <div className="fret-inlays" key={num}>{num}</div>)
+                    fretNumbers.map((element, num) => num >= startingFret && num < endingFret ? <div className="fret-inlays" key={num}>{num}</div>: null)
                 }
             </div>
             <button onClick={() => setNumberOfStrings(numberOfStrings + 1)}>Add String</button>
