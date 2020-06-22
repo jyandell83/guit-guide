@@ -16,8 +16,8 @@ const App = () =>  {
     const [showModal, setShowModal] = useState(false);
     const [numberOfStrings, setNumberOfStrings] = useState(6);
     const [numberOfFrets, setNumberOfFrets] = useState(24);
-    const [startingFret, setStartingFret] = useState(5);
-    const [endingFret, setEndingFret] = useState(9);
+    const [startingFret, setStartingFret] = useState(0);
+    const [endingFret, setEndingFret] = useState(24);
     const [fretboard, setFretboard] = useState([]);
     const [openNotes, setOpenNotes] = useState(['E', 'B', 'G', 'D', 'A', 'E']);
     const [root, setRoot] = useState('C');
@@ -106,7 +106,9 @@ const App = () =>  {
             <button onClick={() => setNumberOfStrings(numberOfStrings - 1)}>Delete String</button>
             <Dashboard 
                 setScale={setScale} 
-                setRoot={setRoot} 
+                setRoot={setRoot}
+                setStartingFret={setStartingFret}
+                setEndingFret={setEndingFret}
                 notes={notes} 
                 fretboard={fretboard}
                 openNotes={openNotes}

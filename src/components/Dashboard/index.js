@@ -3,7 +3,13 @@ import {GuitarString, DashSetting} from './style';
 
 
 
-const Dashboard = ({setScale, setRoot, notes, fretboard, openNotes, setOpenNotes, scaleNotes, root}) =>  {
+
+
+const Dashboard = ({setScale, setRoot, setStartingFret, setEndingFret, notes, fretboard, openNotes, setOpenNotes, scaleNotes, root}) =>  {
+    const fretOptions = [];
+    for (let i = 0; i <= 23; i++) {
+        fretOptions.push(<option key={i}>{i}</option>)
+    }
     return(
         <div className="dashboard">
             <h3 className="dashboard__header">Dashboard</h3>
@@ -28,6 +34,18 @@ const Dashboard = ({setScale, setRoot, notes, fretboard, openNotes, setOpenNotes
                         <option>Minor Pentatonic</option>
                     </select>
 
+                </DashSetting>
+                <DashSetting>
+                    Starting Fret:
+                    <select onChange={(e) => setStartingFret(e.target.value)}>
+                        {fretOptions}
+                    </select>
+                </DashSetting>
+                <DashSetting>
+                    Ending Fret:
+                    <select onChange={(e) => setEndingFret(e.target.value)}>
+                        {fretOptions}
+                    </select>
                 </DashSetting>
            
             {

@@ -107,7 +107,7 @@ h2 {
 
 .fret-inlays-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .fret-inlays {
